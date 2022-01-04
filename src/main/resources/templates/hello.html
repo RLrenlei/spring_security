@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<script src='./js/jquery-1.8.0.min.js' type='text/javascript'></script>
+<!-- 第一种方式:<base> 标签为页面上的所有链接规定默认地址或默认目标,然后你的css或js或src原来是怎么样还是什么样 -->
+<base th:href="@{/}">
+<script th:src="@{js/jquery-1.8.0.min.js}"></script>
 <head>
     <title>Hello World!</title>
 </head>
@@ -15,7 +17,7 @@
     /*点击刷新验证码*/
     function changeCode(){
         var src = "/security/login/getVerifyCode?"+new Date().getTime(); //加时间戳，防止浏览器利用缓存
-        $('.verifyCode').attr("src", src)                  //jQuery写法
+        $('.verifyCode').attr("src", src);                 //jQuery写法
     }
 </script>
 </html>
