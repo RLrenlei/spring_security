@@ -33,10 +33,10 @@
             </exclusions>
         </dependency>
 <!--        spring security 的依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
 <!--        thymeleaf依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
