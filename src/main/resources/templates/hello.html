@@ -9,11 +9,12 @@
 </head>
 <body>
     <div class="verify-code">
-        <input class="verifyInput"  name="verifyInput" placeholder="请输入验证码!">
+        <input class="verifyInput"  name="verifyInput" placeholder="请输入验证码!" onkeyup="verifyCode()">
         <img class="verifyCode" onclick="changeCode()" src="/security/login/getVerifyCode">
     </div>
 </body>
 <script>
+    var correctCode = "";
     /*点击刷新验证码*/
     function changeCode(){
         var src = "/security/login/getVerifyCode?"+new Date().getTime(); //加时间戳，防止浏览器利用缓存
