@@ -8,6 +8,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
@@ -128,7 +130,7 @@ public class ExcelPoiUtil {
      * @return void
      */
     private static void buildWidthMap(Cell cell, Map<Integer,Integer> maxWidthMap, Integer cellIndex) {
-        int cellLength = cell.getStringCellValue().getBytes().length;
+        int cellLength = cell.getStringCellValue().getBytes(StandardCharsets.UTF_8).length;
         if (maxWidthMap.size() == 0 || maxWidthMap.get(cellIndex) == null
                 || cellLength * 256 - 100 > maxWidthMap.get(cellIndex)) {
             maxWidthMap.put(cellIndex, cellLength * 256 - 100);
@@ -203,10 +205,11 @@ public class ExcelPoiUtil {
         title = "科目代码,科目名称,数量,单位成本,成本,成本占净值%,市价,市值,市值占净值%,估值增值,停牌信息";
         tittleList.add(title);
         String fileName = "估值表.xlsx";
-        File file = new File("D:/myFile",fileName);
+        String PATH = "D:/myFile";
+        File file = new File(PATH, fileName);
         Workbook workbook = getWorkbook(fileName);
         workbook = setTittle(tittleList,workbook);
-        List<Object> dataList = new ArrayList<>();
+//        List<Object> dataList = new ArrayList<>();
 //        buildDataList(dataList, workbook);
         try (FileOutputStream fos = new FileOutputStream(file)) {
             assert workbook != null;
