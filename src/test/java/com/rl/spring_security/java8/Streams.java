@@ -169,7 +169,7 @@ public class Streams {
                 i -> System.out.print(i + " "));
         System.out.println();
 
-        Arrays.parallelSort(arrayOfLong, Collections.reverseOrder());
+        //Arrays.parallelSort(arrayOfLong, Collections.reverseOrder());
         Arrays.stream(arrayOfLong).limit(15).forEach(
                 i -> System.out.print(i + " "));
         System.out.println();
